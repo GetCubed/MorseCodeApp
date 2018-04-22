@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="MainWindow" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+   
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="214,648,0,0" Text="enter text"  VerticalAlignment="Top" Height="93" Width="1030" IsReadOnly="True" AcceptsReturn="False" MaxLength="7" FontSize="48" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown"/>
 
     </Grid>
 </Page>
