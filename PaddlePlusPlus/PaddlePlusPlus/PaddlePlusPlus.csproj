@@ -102,6 +102,7 @@
     <Compile Include="Utilities\Characters.cs" />
     <Compile Include="Utilities\helper.cs" />
     <Compile Include="Utilities\MorseToText.cs" />
+    <Compile Include="Utilities\SoundManager.cs" />
     <Compile Include="Utilities\TextToMorse.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +121,11 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="README.txt" />
+    <Content Include="tones\400Hz.wav" />
+    <Content Include="tones\500HzAlt.wav" />
+    <Content Include="tones\550Hz.wav" />
+    <Content Include="tones\550HzAlt.wav" />
+    <Content Include="tones\520Hz.wav" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

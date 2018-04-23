@@ -14,6 +14,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Media.Playback;
+using Windows.Media.Core;
+using PaddlePlusPlus.Utilities;
+
 
 
 
@@ -27,45 +31,67 @@ namespace PaddlePlusPlus
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        
+        
         public MainPage()
         {
             this.InitializeComponent();
+            DitSoundManager.setSource();
+            DahSoundManager.setSource();
         }
 
 
-
-
-
+        bool notPressed = true;
         StringBuilder inputDisplay = new StringBuilder("");
-
-
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == VirtualKey.Right)
+            if (e.Key == VirtualKey.Right && notPressed)
             {
                 inputDisplay.Clear();
-
+                notPressed = false;              
             }
-            else if (e.Key == VirtualKey.Z)
+            else if (e.Key == VirtualKey.Z && notPressed)
             {
-                inputDisplay.Append("Z");
-
+                inputDisplay.Append(".");
+                notPressed = false;
+                DahSoundManager.stopPlaying();
+                DitSoundManager.play550Hz();       
             }
-            else if (e.Key == VirtualKey.X)
+            else if (e.Key == VirtualKey.X && notPressed)
             {
-                inputDisplay.Append("X");
-
+                inputDisplay.Append("-");
+                notPressed = false;
+                DitSoundManager.stopPlaying();
+                DahSoundManager.play520Hz();
             }
             else
             {
-
             }
 
 
             txtInput.Text = inputDisplay.ToString();
 
+        }
+
+        
+        private void txtInput_PreviewKeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            
+            if (e.Key == VirtualKey.Z)
+            {
+                notPressed = true;
+                DitSoundManager.stopPlaying();
+            }
+            else if (e.Key == VirtualKey.X)
+            {
+                notPressed = true;
+                DahSoundManager.stopPlaying();
+            }
+            else if (e.Key == VirtualKey.Right)
+            {
+                notPressed = true;
+            }
         }
     }
 }
