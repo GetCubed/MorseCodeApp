@@ -39,7 +39,7 @@ namespace PaddlePlusPlus.Utilities
                 case "zxx": return Ch.W;
                 case "xzzx": return Ch.X;
                 case "xzxx": return Ch.Y;
-                case "zzxx": return Ch.Z;
+                case "xxzz": return Ch.Z;
                 case "": return Ch._;
                 default:return Ch.other;
             }

@@ -38,7 +38,6 @@ namespace PaddlePlusPlus
             this.InitializeComponent();
             DitSoundManager.setSource();
             DahSoundManager.setSource();
-            txtfont.FontFamily = new FontFamily("/font/morse.ttf");
         }
         
         bool notPressedX = true;
