@@ -49,6 +49,8 @@ namespace PaddlePlusPlus
         StringBuilder outputDisplay = new StringBuilder("");
 
         string stringOnDeck;
+        string wordOnDeck;
+
         Ch enumOnDeck;
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
