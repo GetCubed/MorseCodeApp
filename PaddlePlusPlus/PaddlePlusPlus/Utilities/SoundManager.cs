@@ -14,42 +14,33 @@ namespace PaddlePlusPlus.Utilities
     {
 
         static MediaPlayer player = new MediaPlayer();
-        static bool playing = false;
         static StorageFolder folder;
         static StorageFile file550Hz;
-        static StorageFile file520Hz;
-
+        static StorageFile file550Hzshort;
 
         public static async void setSource()
         {
             folder = await Package.Current.InstalledLocation.GetFolderAsync(@"tones");
-            file550Hz = await folder.GetFileAsync(@"550HzAlt.wav");
-            file520Hz = await folder.GetFileAsync(@"520Hz.wav");
-            player.AutoPlay = false;
+            file550Hz = await folder.GetFileAsync(@"550Hz.wav");
+            file550Hzshort = await folder.GetFileAsync(@"550Hzshort.wav");
+            player.AutoPlay = false; 
         }
 
         public static void play550Hz()
         {
             player.Source = MediaSource.CreateFromStorageFile(file550Hz);
-
             player.Play();
-            playing = true;
         }
 
-        public static void play520Hz()
+        public static void play550Hzshort()
         {
-            player.Source = MediaSource.CreateFromStorageFile(file520Hz);
-
+            player.Source = MediaSource.CreateFromStorageFile(file550Hzshort);
             player.Play();
-            playing = true;
         }
-
 
         public static void stopPlaying()
         {
             player.Pause();
-
-            playing = false;
         }
 
     }
@@ -59,42 +50,42 @@ namespace PaddlePlusPlus.Utilities
     {
 
         static MediaPlayer player = new MediaPlayer();
-        static bool playing = false;
         static StorageFolder folder;
+        static StorageFile file540Hz;
+        static StorageFile file545Hz;
         static StorageFile file550Hz;
-        static StorageFile file520Hz;
-
 
         public static async void setSource()
         {
             folder = await Package.Current.InstalledLocation.GetFolderAsync(@"tones");
-            file550Hz = await folder.GetFileAsync(@"550HzAlt.wav");
-            file520Hz = await folder.GetFileAsync(@"520Hz.wav");
+            file540Hz = await folder.GetFileAsync(@"540Hz.wav");
+            file545Hz = await folder.GetFileAsync(@"545Hz.wav");
+            file550Hz = await folder.GetFileAsync(@"550Hz.wav");
             player.AutoPlay = false;
+        }
+
+
+        public static void play540Hz()
+        {
+            player.Source = MediaSource.CreateFromStorageFile(file540Hz);
+            player.Play();
+        }
+
+        public static void play545Hz()
+        {
+            player.Source = MediaSource.CreateFromStorageFile(file545Hz);
+            player.Play();
         }
 
         public static void play550Hz()
         {
             player.Source = MediaSource.CreateFromStorageFile(file550Hz);
-
             player.Play();
-            playing = true;
         }
-
-        public static void play520Hz()
-        {
-            player.Source = MediaSource.CreateFromStorageFile(file520Hz);
-
-            player.Play();
-            playing = true;
-        }
-
 
         public static void stopPlaying()
         {
             player.Pause();
-
-            playing = false;
         }
 
     }

@@ -39,39 +39,53 @@ namespace PaddlePlusPlus
             DitSoundManager.setSource();
             DahSoundManager.setSource();
         }
+        
+        bool notPressedX = true;
+        bool notPressedZ = true;
+        int maxLength = 5;
 
-
-        bool notPressed = true;
         StringBuilder inputDisplay = new StringBuilder("");
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == VirtualKey.Right && notPressed)
+            
+            if (e.Key == VirtualKey.Right)
             {
                 inputDisplay.Clear();
-                notPressed = false;              
+
+                DahSoundManager.setSource();
+                DitSoundManager.setSource();    
             }
-            else if (e.Key == VirtualKey.Z && notPressed)
+            else if (e.Key == VirtualKey.Z && notPressedZ)
             {
-                inputDisplay.Append(".");
-                notPressed = false;
-                DahSoundManager.stopPlaying();
-                DitSoundManager.play550Hz();       
+                if (inputDisplay.Length < maxLength)
+                {
+                    inputDisplay.Append(".");
+                    notPressedZ = false;
+                    DahSoundManager.stopPlaying();
+                    DitSoundManager.play550Hzshort();
+                }
+                
             }
-            else if (e.Key == VirtualKey.X && notPressed)
+            else if (e.Key == VirtualKey.X && notPressedX)
             {
-                inputDisplay.Append("-");
-                notPressed = false;
-                DitSoundManager.stopPlaying();
-                DahSoundManager.play520Hz();
+
+                if (inputDisplay.Length < maxLength)
+                {
+                    inputDisplay.Append("-");
+                    notPressedX = false;
+                    DitSoundManager.stopPlaying();
+                    DahSoundManager.play545Hz();
+                }
+
+                
             }
             else
             {
+                DitSoundManager.stopPlaying();
+                DahSoundManager.stopPlaying();
             }
-
-
             txtInput.Text = inputDisplay.ToString();
-
         }
 
         
@@ -80,18 +94,21 @@ namespace PaddlePlusPlus
             
             if (e.Key == VirtualKey.Z)
             {
-                notPressed = true;
+                notPressedZ = true;
                 DitSoundManager.stopPlaying();
             }
             else if (e.Key == VirtualKey.X)
             {
-                notPressed = true;
+                notPressedX = true;
                 DahSoundManager.stopPlaying();
             }
             else if (e.Key == VirtualKey.Right)
-            {
-                notPressed = true;
+            {           
+                DahSoundManager.setSource();
             }
         }
+
+    
+
     }
 }
