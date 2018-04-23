@@ -38,6 +38,7 @@ namespace PaddlePlusPlus
             this.InitializeComponent();
             DitSoundManager.setSource();
             DahSoundManager.setSource();
+            txtfont.FontFamily = new FontFamily("/font/morse.ttf");
         }
         
         bool notPressedX = true;
@@ -45,22 +46,38 @@ namespace PaddlePlusPlus
         int maxLength = 5;
 
         StringBuilder inputDisplay = new StringBuilder("");
+        StringBuilder inputConvert = new StringBuilder("");
+        string stringOnDeck;
+        Ch enumOnDeck;
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            
-            if (e.Key == VirtualKey.Right)
+
+            if (e.Key == VirtualKey.Left)
             {
                 inputDisplay.Clear();
-
+                inputConvert.Clear();
                 DahSoundManager.setSource();
-                DitSoundManager.setSource();    
+                DitSoundManager.setSource();
+            }
+            else if (e.Key == VirtualKey.Right)
+            {
+                enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
+                stringOnDeck = Converter.EnumToString(enumOnDeck);
+                lblOnDeckCharacter.Text = stringOnDeck;
+                lblOnDeckMorse.Text = stringOnDeck;
+                inputDisplay.Clear();
+                inputConvert.Clear();
+                DahSoundManager.setSource();
+                DitSoundManager.setSource();
+                
             }
             else if (e.Key == VirtualKey.Z && notPressedZ)
             {
                 if (inputDisplay.Length < maxLength)
                 {
                     inputDisplay.Append(".");
+                    inputConvert.Append("z");
                     notPressedZ = false;
                     DahSoundManager.stopPlaying();
                     DitSoundManager.play550Hzshort();
@@ -73,12 +90,12 @@ namespace PaddlePlusPlus
                 if (inputDisplay.Length < maxLength)
                 {
                     inputDisplay.Append("-");
+                    inputConvert.Append("x");
                     notPressedX = false;
                     DitSoundManager.stopPlaying();
                     DahSoundManager.play545Hz();
                 }
-
-                
+  
             }
             else
             {

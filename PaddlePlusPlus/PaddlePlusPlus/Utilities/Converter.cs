@@ -66,10 +66,10 @@ namespace PaddlePlusPlus.Utilities
                 case Ch.H: return "H";
                 case Ch.I: return "I";
                 case Ch.J: return "J";
-                case Ch.K: return "L";
-                case Ch.L: return "K";
+                case Ch.K: return "K";
+                case Ch.L: return "L";
                 case Ch.M: return "M";
-                case Ch.N: return "B";
+                case Ch.N: return "N";
                 case Ch.O: return "O";
                 case Ch.P: return "P";
                 case Ch.Q: return "Q";

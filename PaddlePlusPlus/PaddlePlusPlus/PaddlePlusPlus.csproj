@@ -108,6 +108,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="fonts\morse.ttf" />
     <None Include="PaddlePlusPlus_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
