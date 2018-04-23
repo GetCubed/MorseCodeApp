@@ -46,6 +46,8 @@ namespace PaddlePlusPlus
 
         StringBuilder inputDisplay = new StringBuilder("");
         StringBuilder inputConvert = new StringBuilder("");
+        StringBuilder outputDisplay = new StringBuilder("");
+
         string stringOnDeck;
         Ch enumOnDeck;
 
@@ -54,6 +56,11 @@ namespace PaddlePlusPlus
 
             if (e.Key == VirtualKey.Left)
             {
+                txtOutput.Text = "";
+                txtOutputText.Text = "";
+
+                outputDisplay.Clear();
+
                 inputDisplay.Clear();
                 inputConvert.Clear();
                 DahSoundManager.setSource();
@@ -61,10 +68,10 @@ namespace PaddlePlusPlus
             }
             else if (e.Key == VirtualKey.Right)
             {
-                enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
-                stringOnDeck = Converter.EnumToString(enumOnDeck);
-                lblOnDeckCharacter.Text = stringOnDeck;
-                lblOnDeckMorse.Text = stringOnDeck;
+                outputDisplay.Append(" "+ stringOnDeck);
+                txtOutput.Text = outputDisplay.ToString();
+                txtOutputText.Text = outputDisplay.ToString();
+
                 inputDisplay.Clear();
                 inputConvert.Clear();
                 DahSoundManager.setSource();
@@ -77,6 +84,12 @@ namespace PaddlePlusPlus
                 {
                     inputDisplay.Append(".");
                     inputConvert.Append("z");
+
+                    enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
+                    stringOnDeck = Converter.EnumToString(enumOnDeck);
+                    lblOnDeckCharacter.Text = stringOnDeck;
+                    lblOnDeckMorse.Text = stringOnDeck;
+
                     notPressedZ = false;
                     DahSoundManager.stopPlaying();
                     DitSoundManager.play550Hzshort();
@@ -90,6 +103,12 @@ namespace PaddlePlusPlus
                 {
                     inputDisplay.Append("-");
                     inputConvert.Append("x");
+
+                    enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
+                    stringOnDeck = Converter.EnumToString(enumOnDeck);
+                    lblOnDeckCharacter.Text = stringOnDeck;
+                    lblOnDeckMorse.Text = stringOnDeck;
+
                     notPressedX = false;
                     DitSoundManager.stopPlaying();
                     DahSoundManager.play545Hz();

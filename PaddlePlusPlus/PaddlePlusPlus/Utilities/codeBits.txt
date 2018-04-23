@@ -1,0 +1,1 @@
+﻿return GetIcon((Icons)Enum.Parse(typeof(Icons), icon), size, textColor);
