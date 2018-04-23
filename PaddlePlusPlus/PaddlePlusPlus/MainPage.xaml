@@ -7,7 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="MainWindow" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="125,533,0,0" Text=""  VerticalAlignment="Top" Height="135" Width="1030" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
+        <TextBlock x:Name="lblOnDeckCharacter" HorizontalAlignment="Left" Margin="125,283,0,0" Text="#" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="112" FontSize="72" FontWeight="Bold" />
+        <TextBlock x:Name="lblOnDeckMorse" HorizontalAlignment="Left" Margin="125,384,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="113" Width="130" FontSize="72" FontFamily="fonts/morse.ttf"/>
+        <TextBox x:Name="txtfont" HorizontalAlignment="Left" Margin="505,283,0,0" Text="" VerticalAlignment="Top" Height="135" Width="401" FontFamily="morse"/>
+
+
+
 
     </Grid>
 </Page>

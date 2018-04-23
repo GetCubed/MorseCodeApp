@@ -99,11 +99,16 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Characters.cs" />
+    <Compile Include="Utilities\Converter.cs" />
+    <Content Include="Utilities\helper.txt" />
+    <Compile Include="Utilities\SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="fonts\morse.ttf" />
     <None Include="PaddlePlusPlus_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +120,11 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="README.txt" />
+    <Content Include="tones\540Hz.wav" />
+    <Content Include="tones\550Hz.wav" />
+    <Content Include="tones\545Hz.wav" />
+    <Content Include="tones\550Hzshort.wav" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
