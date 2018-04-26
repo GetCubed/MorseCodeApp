@@ -38,7 +38,6 @@ namespace PaddlePlusPlus
             this.InitializeComponent();
             DitSoundManager.setSource();
             DahSoundManager.setSource();
-            txtfont.FontFamily = new FontFamily("/font/morse.ttf");
         }
         
         bool notPressedX = true;
@@ -47,7 +46,14 @@ namespace PaddlePlusPlus
 
         StringBuilder inputDisplay = new StringBuilder("");
         StringBuilder inputConvert = new StringBuilder("");
-        string stringOnDeck;
+        StringBuilder outputDisplay = new StringBuilder("");
+        StringBuilder outputWordToAdd = new StringBuilder("");
+        StringBuilder wordToAdd = new StringBuilder("");
+        StringBuilder wordOnDeck = new StringBuilder("");
+        StringBuilder wordOnDeckPrime = new StringBuilder("");
+
+        string letterOnDeck;
+       
         Ch enumOnDeck;
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
@@ -55,19 +61,55 @@ namespace PaddlePlusPlus
 
             if (e.Key == VirtualKey.Left)
             {
-                inputDisplay.Clear();
-                inputConvert.Clear();
+                if (lblWordOnDeck.Text != "")
+                {
+                    wordOnDeck.Clear();
+
+                    inputDisplay.Clear();
+                    inputConvert.Clear();
+
+                    lblWordOnDeck.Text = "";
+                }
+                else
+                {
+                    outputDisplay.Clear();
+                    txtOutput.Text = outputDisplay.ToString();
+                    txtOutputText.Text = outputDisplay.ToString();
+                }
+                
                 DahSoundManager.setSource();
                 DitSoundManager.setSource();
             }
             else if (e.Key == VirtualKey.Right)
             {
-                enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
-                stringOnDeck = Converter.EnumToString(enumOnDeck);
-                lblOnDeckCharacter.Text = stringOnDeck;
-                lblOnDeckMorse.Text = stringOnDeck;
+                if (letterOnDeck == "")
+                {
+                    outputDisplay.Append(wordOnDeck.ToString() + " ");
+
+                    txtOutput.Text = outputDisplay.ToString();
+                    txtOutputText.Text = outputDisplay.ToString();
+         
+                    lblWordOnDeck.Text = "";
+
+                    wordOnDeck.Clear();
+                }
+                else
+                {
+                    if (letterOnDeck != "#")
+                    {
+                        wordOnDeck.Append(letterOnDeck);
+                    }
+                    else
+                    {
+                        lblWordOnDeck.Text = wordOnDeck.ToString();
+                    }
+                   
+                }
+
+
                 inputDisplay.Clear();
                 inputConvert.Clear();
+                letterOnDeck = "";
                 DahSoundManager.setSource();
                 DitSoundManager.setSource();
                 
@@ -78,6 +120,12 @@ namespace PaddlePlusPlus
                 {
                     inputDisplay.Append(".");
                     inputConvert.Append("z");
+
+                    enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());     
+                    letterOnDeck = Converter.EnumToString(enumOnDeck);
+
+                    lblWordOnDeck.Text = wordOnDeck.ToString() + letterOnDeck;
+
                     notPressedZ = false;
                     DahSoundManager.stopPlaying();
                     DitSoundManager.play550Hzshort();
@@ -91,6 +139,12 @@ namespace PaddlePlusPlus
                 {
                     inputDisplay.Append("-");
                     inputConvert.Append("x");
+
+                    enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
+                    letterOnDeck = Converter.EnumToString(enumOnDeck);
+
+                    lblWordOnDeck.Text = wordOnDeck.ToString() + letterOnDeck;
+
                     notPressedX = false;
                     DitSoundManager.stopPlaying();
                     DahSoundManager.play545Hz();
