@@ -54,7 +54,6 @@ namespace PaddlePlusPlus
 
         string letterOnDeck;
        
-
         Ch enumOnDeck;
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
@@ -62,13 +61,22 @@ namespace PaddlePlusPlus
 
             if (e.Key == VirtualKey.Left)
             {
-                txtOutput.Text = "";
-                txtOutputText.Text = "";
+                if (lblWordOnDeck.Text != "")
+                {
+                    wordOnDeck.Clear();
 
-                outputDisplay.Clear();
+                    inputDisplay.Clear();
+                    inputConvert.Clear();
 
-                inputDisplay.Clear();
-                inputConvert.Clear();
+                    lblWordOnDeck.Text = "";
+                }
+                else
+                {
+                    outputDisplay.Clear();
+                    txtOutput.Text = outputDisplay.ToString();
+                    txtOutputText.Text = outputDisplay.ToString();
+                }
+                
                 DahSoundManager.setSource();
                 DitSoundManager.setSource();
             }
@@ -76,7 +84,7 @@ namespace PaddlePlusPlus
             {
                 if (letterOnDeck == "")
                 {
-                    outputDisplay.Append(wordOnDeck.ToString());
+                    outputDisplay.Append(wordOnDeck.ToString() + " ");
 
                     txtOutput.Text = outputDisplay.ToString();
                     txtOutputText.Text = outputDisplay.ToString();
@@ -87,7 +95,15 @@ namespace PaddlePlusPlus
                 }
                 else
                 {
-                    wordOnDeck.Append(letterOnDeck);
+                    if (letterOnDeck != "#")
+                    {
+                        wordOnDeck.Append(letterOnDeck);
+                    }
+                    else
+                    {
+                        lblWordOnDeck.Text = wordOnDeck.ToString();
+                    }
+                   
                 }
 
 
@@ -105,7 +121,7 @@ namespace PaddlePlusPlus
                     inputDisplay.Append(".");
                     inputConvert.Append("z");
 
-                    enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
+                    enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());     
                     letterOnDeck = Converter.EnumToString(enumOnDeck);
 
                     lblWordOnDeck.Text = wordOnDeck.ToString() + letterOnDeck;
