@@ -12,20 +12,20 @@
 
 
 
-    <Grid x:Name="MainWindow" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+    <Grid x:Name="MainWindow" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0" >
 
         <Grid.Resources>
             <FontFamily x:Key="morse">fonts/morse.ttf#morse</FontFamily>
         </Grid.Resources>
 
 
-        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="125,533,0,0" Text=""  VerticalAlignment="Top" Height="135" Width="1030" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
-        <TextBlock x:Name="lblOnDeckCharacter" HorizontalAlignment="Left" Margin="125,283,0,0" Text="#" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="112" FontSize="72" FontWeight="Bold" FontFamily="Arial Black" />
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="75,514,0,0" Text=""  VerticalAlignment="Top" Height="135" Width="485" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
+        <TextBlock x:Name="lblWordOnDeck" HorizontalAlignment="Left" Margin="79,408,0,0" Text="#" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="456" FontSize="72" FontWeight="Bold" FontFamily="Arial Black" />
 
-        <TextBlock x:Name="lblOnDeckMorse" HorizontalAlignment="Left" Margin="125,384,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="113" Width="352" FontSize="72" FontFamily="{StaticResource morse}"/>
+        <!--<TextBlock x:Name="lblMorseOnDeck" HorizontalAlignment="Left" Margin="630,537,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="113" Width="352" FontSize="72" FontFamily="{StaticResource morse}"/>-->
 
-        <TextBlock x:Name="txtOutput" HorizontalAlignment="Left" Margin="479,38,0,0" Text="" VerticalAlignment="Top" Height="191" Width="679" FontFamily="{StaticResource morse}" FontSize="22" TextWrapping="Wrap"/>
-        <TextBlock x:Name="txtOutputText" HorizontalAlignment="Left" Margin="478,281,0,0" Text="" VerticalAlignment="Top" Height="191" Width="679" FontSize="22" TextWrapping="Wrap" FontFamily="Arial Black"/>
+        <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Margin="56,22,0,0" Text="" VerticalAlignment="Top" Height="362" Width="224" FontFamily="{StaticResource morse}" FontSize="22" TextWrapping="Wrap"/>
+        <TextBox x:Name="txtOutputText" HorizontalAlignment="Left" Margin="282,28,0,0" Text="" VerticalAlignment="Top" Height="286" Width="255" FontSize="22" TextWrapping="Wrap" FontFamily="Arial Black"/>
 
 
 

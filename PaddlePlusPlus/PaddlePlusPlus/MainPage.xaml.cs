@@ -47,9 +47,13 @@ namespace PaddlePlusPlus
         StringBuilder inputDisplay = new StringBuilder("");
         StringBuilder inputConvert = new StringBuilder("");
         StringBuilder outputDisplay = new StringBuilder("");
+        StringBuilder outputWordToAdd = new StringBuilder("");
+        StringBuilder wordToAdd = new StringBuilder("");
+        StringBuilder wordOnDeck = new StringBuilder("");
+        StringBuilder wordOnDeckPrime = new StringBuilder("");
 
-        string stringOnDeck;
-        string wordOnDeck;
+        string letterOnDeck;
+       
 
         Ch enumOnDeck;
 
@@ -70,12 +74,26 @@ namespace PaddlePlusPlus
             }
             else if (e.Key == VirtualKey.Right)
             {
-                outputDisplay.Append(" "+ stringOnDeck);
-                txtOutput.Text = outputDisplay.ToString();
-                txtOutputText.Text = outputDisplay.ToString();
+                if (letterOnDeck == "")
+                {
+                    outputDisplay.Append(wordOnDeck.ToString());
+
+                    txtOutput.Text = outputDisplay.ToString();
+                    txtOutputText.Text = outputDisplay.ToString();
+         
+                    lblWordOnDeck.Text = "";
+
+                    wordOnDeck.Clear();
+                }
+                else
+                {
+                    wordOnDeck.Append(letterOnDeck);
+                }
+
 
                 inputDisplay.Clear();
                 inputConvert.Clear();
+                letterOnDeck = "";
                 DahSoundManager.setSource();
                 DitSoundManager.setSource();
                 
@@ -88,9 +106,9 @@ namespace PaddlePlusPlus
                     inputConvert.Append("z");
 
                     enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
-                    stringOnDeck = Converter.EnumToString(enumOnDeck);
-                    lblOnDeckCharacter.Text = stringOnDeck;
-                    lblOnDeckMorse.Text = stringOnDeck;
+                    letterOnDeck = Converter.EnumToString(enumOnDeck);
+
+                    lblWordOnDeck.Text = wordOnDeck.ToString() + letterOnDeck;
 
                     notPressedZ = false;
                     DahSoundManager.stopPlaying();
@@ -107,9 +125,9 @@ namespace PaddlePlusPlus
                     inputConvert.Append("x");
 
                     enumOnDeck = Converter.morseStringToEnum(inputConvert.ToString());
-                    stringOnDeck = Converter.EnumToString(enumOnDeck);
-                    lblOnDeckCharacter.Text = stringOnDeck;
-                    lblOnDeckMorse.Text = stringOnDeck;
+                    letterOnDeck = Converter.EnumToString(enumOnDeck);
+
+                    lblWordOnDeck.Text = wordOnDeck.ToString() + letterOnDeck;
 
                     notPressedX = false;
                     DitSoundManager.stopPlaying();
