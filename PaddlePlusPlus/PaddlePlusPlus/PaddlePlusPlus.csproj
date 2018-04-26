@@ -108,10 +108,10 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="fonts\morse.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\morsecode.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="PaddlePlusPlus_TemporaryKey.pfx" />
   </ItemGroup>
