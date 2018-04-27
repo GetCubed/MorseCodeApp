@@ -42,6 +42,8 @@ namespace PaddlePlusPlus
             DahSoundManager.setSource();
 
             askAPI("HELLO");
+;
+            MorseWriter.write("WORKS");
 
         }
         

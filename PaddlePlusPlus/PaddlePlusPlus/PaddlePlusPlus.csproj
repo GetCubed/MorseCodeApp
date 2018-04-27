@@ -105,8 +105,8 @@
     <Compile Include="Utilities\Characters.cs" />
     <Compile Include="Utilities\Converter.cs" />
     <Compile Include="Utilities\Jeeves.cs" />
+    <Compile Include="Utilities\MorseWriter.cs" />
     <Compile Include="Utilities\SoundManager.cs" />
-    <Compile Include="Utilities\Writer.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
