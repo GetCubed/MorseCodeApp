@@ -12,7 +12,7 @@
 
         <Grid.Resources>
             <FontFamily x:Key="morse">fonts/morse.ttf#morse</FontFamily>
-            <FontFamily x:Key="morsecode">fonts/morsecode.ttf#Morse Code</FontFamily>
+            <FontFamily x:Key="morsecode">fonts/morse code regular.ttf#Morse Code</FontFamily>
         </Grid.Resources>
 
         <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="75,514,0,0" Text=""  VerticalAlignment="Top" Height="135" Width="485" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
@@ -20,6 +20,10 @@
 
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Margin="56,22,0,0" Text="" VerticalAlignment="Top" Height="362" Width="224" FontFamily="{StaticResource morsecode}" FontSize="22" TextWrapping="Wrap"/>
         <TextBox x:Name="txtOutputText" HorizontalAlignment="Left" Margin="282,28,0,0" Text="" VerticalAlignment="Top" Height="352" Width="255" FontSize="22" TextWrapping="Wrap" FontFamily="Arial Black"/>
+        <TextBox HorizontalAlignment="Left" Margin="595,28,0,0" Text="TextBox" VerticalAlignment="Top" Height="621" Width="610"/>
+        
+        
+        
 
     </Grid>
 </Page>

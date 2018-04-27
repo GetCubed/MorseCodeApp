@@ -95,12 +95,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DAL\IRootObjectRepository.cs" />
+    <Compile Include="DAL\RootObjectRepository.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\MorseCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Characters.cs" />
     <Compile Include="Utilities\Converter.cs" />
+    <Compile Include="Utilities\Jeeves.cs" />
     <Compile Include="Utilities\SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +117,7 @@
     <Content Include="fonts\morsecode.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\morse code regular.ttf" />
     <None Include="PaddlePlusPlus_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -145,10 +150,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.4</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.8</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
