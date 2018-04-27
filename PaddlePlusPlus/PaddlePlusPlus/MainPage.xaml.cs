@@ -41,7 +41,7 @@ namespace PaddlePlusPlus
             DitSoundManager.setSource();
             DahSoundManager.setSource();
 
-            askAPI("HELLO");
+            CallAPI("HELLO");
 ;
             MorseWriter.write("WORKS");
 
@@ -68,14 +68,21 @@ namespace PaddlePlusPlus
 
             if (e.Key == VirtualKey.Left)
             {
+
+
                 if (lblWordOnDeck.Text != "")
                 {
-                    wordOnDeck.Clear();
+                    string ToCut = "This"
+                    
 
+                    outputDisplay.Clear();
+                    outputDisplay.Append(ToCut);
+
+                    wordOnDeck.Clear();
                     inputDisplay.Clear();
                     inputConvert.Clear();
 
-                    lblWordOnDeck.Text = "";
+                    lblWordOnDeck.Text = outputDisplay.ToString();
                 }
                 else
                 {
@@ -216,11 +223,8 @@ namespace PaddlePlusPlus
             }
 
         }
-
-
-
-
-        private void askAPI(string text)
+ 
+        private void CallAPI(string text)
         {
             showMorseCode(text);
         }
