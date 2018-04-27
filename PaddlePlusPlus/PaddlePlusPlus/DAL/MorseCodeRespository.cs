@@ -1,43 +1,41 @@
-﻿using PaddlePlusPlus.Models;
-using PaddlePlusPlus.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using PaddlePlusPlus.Models;
+using PaddlePlusPlus.Utilities;
 
 namespace PaddlePlusPlus.DAL
 {
-    class RootObjectRepository : IRootObjectRepository
+    class MorseCodeRespository: IMorseCodeRepository
     {
         HttpClient client = new HttpClient();
 
-        public RootObjectRepository()
+        public MorseCodeRespository()
         {
             client.BaseAddress = Jeeves.DBUri;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<Rootobject> GetRootObjectByTextAsync(string text, string speed, string tone)
+        public async Task<MorseCode> EncodeByStringAsync(string text)
         {
-            var response = await client.GetAsync($"translate/morse/audio.json?text={text}&speed={speed}&tone={tone}");
+            var response = await client.GetAsync($"encode?string={text}");
 
             if (response.IsSuccessStatusCode)
             {
-                Rootobject Rootobject = await response.Content.ReadAsAsync<Rootobject>();
-                return Rootobject;
+                MorseCode morseCode = await response.Content.ReadAsAsync<MorseCode>();
+                return morseCode;
             }
             else
             {
-                return new Rootobject();
+                return new MorseCode();
             }
-
-
-
-
         }
+
+ 
     }
 }

@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Navigation;
 using Windows.Media.Playback;
 using Windows.Media.Core;
 using PaddlePlusPlus.Utilities;
+using PaddlePlusPlus.DAL;
+using PaddlePlusPlus.Models;
 
 
 
@@ -38,6 +40,9 @@ namespace PaddlePlusPlus
             this.InitializeComponent();
             DitSoundManager.setSource();
             DahSoundManager.setSource();
+
+            askAPI("HELLO");
+
         }
         
         bool notPressedX = true;
@@ -159,7 +164,6 @@ namespace PaddlePlusPlus
             txtInput.Text = inputDisplay.ToString();
         }
 
-        
         private void txtInput_PreviewKeyUp(object sender, KeyRoutedEventArgs e)
         {
             
@@ -179,7 +183,44 @@ namespace PaddlePlusPlus
             }
         }
 
-    
 
+        private async void showMorseCode(string text)
+        {
+
+            MorseCodeRespository r = new MorseCodeRespository();
+            try
+            {
+                MorseCode morseCode = new MorseCode();
+                morseCode.morsecode = "";
+                morseCode.plaintext = "";
+                if (text != "")
+                {
+                    morseCode = await r.EncodeByStringAsync(text);
+                }
+
+                txtAPITextTest.Text = morseCode.morsecode;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException.Message.Contains("server"))
+                {
+                    Jeeves.ShowMessage("Error", "No connection with the server.");
+                }
+                else
+                {
+                    Jeeves.ShowMessage("Error", "Could not complete operation.");
+                }
+            }
+
+        }
+
+
+
+
+        private void askAPI(string text)
+        {
+            showMorseCode(text);
+        }
     }
 }

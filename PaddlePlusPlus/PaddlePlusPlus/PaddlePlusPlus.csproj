@@ -95,8 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DAL\IRootObjectRepository.cs" />
-    <Compile Include="DAL\RootObjectRepository.cs" />
+    <Compile Include="DAL\IMorseCodeRepository.cs" />
+    <Compile Include="DAL\MorseCodeRespository.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -106,6 +106,7 @@
     <Compile Include="Utilities\Converter.cs" />
     <Compile Include="Utilities\Jeeves.cs" />
     <Compile Include="Utilities\SoundManager.cs" />
+    <Compile Include="Utilities\Writer.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
