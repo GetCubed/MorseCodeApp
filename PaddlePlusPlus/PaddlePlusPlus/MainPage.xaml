@@ -20,9 +20,10 @@
 
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Margin="289,114,0,0" Text="" VerticalAlignment="Top" Height="356" Width="271" FontFamily="{StaticResource morsecode}" FontSize="24" TextWrapping="Wrap"/>
         <TextBox x:Name="txtOutputText" HorizontalAlignment="Left" Margin="29,114,0,0" Text="" VerticalAlignment="Top" Height="356" Width="255" FontSize="16" TextWrapping="Wrap" FontFamily="Arial Black" TextChanged="txtOutputText_TextChanged"/>
-        <TextBox x:Name="txtAPITextTest" HorizontalAlignment="Left" Margin="635,474,0,0" Text="" VerticalAlignment="Top" Height="223" Width="606"/>
+        <TextBox x:Name="txtAPITextTest" HorizontalAlignment="Left" Margin="635,568,0,0" Text="" VerticalAlignment="Top" Height="129" Width="606"/>
         <Button x:Name="btnSave" Content="Save Audio File" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" Width="531" Height="46" Click="btnSave_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="29,38,0,0" Text="Paddle++ Bringing Morse Code to 2018" TextWrapping="Wrap" VerticalAlignment="Top" Width="531"/>
+        <Image x:Name="imgMorseChart" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="606" Margin="635,66,0,0" Source="Assets/morsechart.jpg" Stretch="Uniform"/>
 
 
 

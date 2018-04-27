@@ -112,6 +112,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\morsechart.jpg" />
     <Content Include="fonts\morse.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
