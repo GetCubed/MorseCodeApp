@@ -15,15 +15,25 @@
             <FontFamily x:Key="morsecode">fonts/morse code regular.ttf#Morse Code</FontFamily>
         </Grid.Resources>
 
-        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="29,568,0,0" Text=""  VerticalAlignment="Top" Height="129" Width="531" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="29,568,0,0" Text=""  VerticalAlignment="Top" Height="108" Width="531" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Segoe UI" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
         <TextBlock x:Name="lblWordOnDeck" HorizontalAlignment="Left" Margin="29,494,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="527" FontSize="72" FontWeight="Bold" FontFamily="Arial Black" />
 
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Margin="289,114,0,0" Text="" VerticalAlignment="Top" Height="356" Width="271" FontFamily="{StaticResource morsecode}" FontSize="24" TextWrapping="Wrap"/>
         <TextBox x:Name="txtOutputText" HorizontalAlignment="Left" Margin="29,114,0,0" Text="" VerticalAlignment="Top" Height="356" Width="255" FontSize="14" TextWrapping="Wrap" FontFamily="Arial Black" TextChanged="txtOutputText_TextChanged"/>
         <TextBox x:Name="txtAPITextTest" HorizontalAlignment="Left" Margin="635,568,0,0" Text="" VerticalAlignment="Top" Height="129" Width="606"/>
         <Button x:Name="btnSave" Content="Save Audio File" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" Width="531" Height="46" Click="btnSave_Click"/>
+
+
+        
+
+
+
         <TextBlock x:Name="txtTitle" HorizontalAlignment="Left" Margin="29,27,0,0" Text="Paddle++ Bringing Morse Code to 2018" TextWrapping="Wrap" VerticalAlignment="Top" Width="531" Height="31" FontSize="18" FontWeight="Bold"/>
         <Image x:Name="imgMorseChart" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="606" Margin="635,66,0,0" Source="Assets/morsechart.jpg" Stretch="Uniform"/>
+        <TextBlock x:Name="txtDit" HorizontalAlignment="Left" Margin="29,681,0,-9" Text="Z - Dit" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="36" FontWeight="Bold" TextAlignment="Center" FontFamily="Segoe UI"/>
+        <TextBlock x:Name="txtDah" HorizontalAlignment="Left" Margin="303,681,0,-9" Text="X - Dah" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
+
+
 
 
 

@@ -6,7 +6,6 @@ Some applications include amateur radio and aeronautical aids such as VORs.
 SOS is a common distress signal using three dashes and three dots and uses Morse code.
 
 
- 
 An observer can understand Morse code without special equipment which can be an advantage in, for example, an emergency situation.  
 This code can also be useful when poor signal conditions exist, and the human voice is difficult to decode. 
 
