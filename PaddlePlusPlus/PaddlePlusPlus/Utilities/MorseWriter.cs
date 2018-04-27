@@ -12,7 +12,7 @@ namespace PaddlePlusPlus.Utilities
     {
         public static void write(string text)
         {
-            string path = @"D:\Users\GetCubed\MorseCode.txt";
+            string path = @"D:\MorseCode.txt";
             File.Create(path);
 
 
