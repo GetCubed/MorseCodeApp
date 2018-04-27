@@ -15,12 +15,14 @@
             <FontFamily x:Key="morsecode">fonts/morse code regular.ttf#Morse Code</FontFamily>
         </Grid.Resources>
 
-        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="75,514,0,0" Text=""  VerticalAlignment="Top" Height="135" Width="485" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
-        <TextBlock x:Name="lblWordOnDeck" HorizontalAlignment="Left" Margin="79,408,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="456" FontSize="72" FontWeight="Bold" FontFamily="Arial Black" />
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Margin="29,568,0,0" Text=""  VerticalAlignment="Top" Height="129" Width="531" IsReadOnly="True" AcceptsReturn="False" FontSize="72" FontFamily="Arial Black" IsHoldingEnabled="False" PreviewKeyDown="txtInput_PreviewKeyDown" PreviewKeyUp="txtInput_PreviewKeyUp" TextAlignment="Left"/>
+        <TextBlock x:Name="lblWordOnDeck" HorizontalAlignment="Left" Margin="29,494,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="527" FontSize="72" FontWeight="Bold" FontFamily="Arial Black" />
 
-        <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Margin="56,22,0,0" Text="" VerticalAlignment="Top" Height="362" Width="224" FontFamily="{StaticResource morsecode}" FontSize="22" TextWrapping="Wrap"/>
-        <TextBox x:Name="txtOutputText" HorizontalAlignment="Left" Margin="282,28,0,0" Text="" VerticalAlignment="Top" Height="352" Width="255" FontSize="22" TextWrapping="Wrap" FontFamily="Arial Black"/>
-        <TextBox x:Name="txtAPITextTest" HorizontalAlignment="Left" Margin="595,28,0,0" Text="" VerticalAlignment="Top" Height="211" Width="560"/>
+        <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Margin="289,114,0,0" Text="" VerticalAlignment="Top" Height="356" Width="271" FontFamily="{StaticResource morsecode}" FontSize="24" TextWrapping="Wrap"/>
+        <TextBox x:Name="txtOutputText" HorizontalAlignment="Left" Margin="29,114,0,0" Text="" VerticalAlignment="Top" Height="356" Width="255" FontSize="16" TextWrapping="Wrap" FontFamily="Arial Black" TextChanged="txtOutputText_TextChanged"/>
+        <TextBox x:Name="txtAPITextTest" HorizontalAlignment="Left" Margin="635,474,0,0" Text="" VerticalAlignment="Top" Height="223" Width="606"/>
+        <Button x:Name="btnSave" Content="Save Audio File" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" Width="531" Height="46" Click="btnSave_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,38,0,0" Text="Paddle++ Bringing Morse Code to 2018" TextWrapping="Wrap" VerticalAlignment="Top" Width="531"/>
 
 
 

@@ -40,10 +40,7 @@ namespace PaddlePlusPlus
             this.InitializeComponent();
             DitSoundManager.setSource();
             DahSoundManager.setSource();
-
-            CallAPI("HELLO");
-;
-            MorseWriter.write("WORKS");
+            //MorseWriter.write("WORKS");
 
         }
         
@@ -60,7 +57,7 @@ namespace PaddlePlusPlus
         StringBuilder wordOnDeckPrime = new StringBuilder("");
 
         string letterOnDeck;
-       
+
         Ch enumOnDeck;
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
@@ -72,22 +69,24 @@ namespace PaddlePlusPlus
 
                 if (lblWordOnDeck.Text != "")
                 {
-                    string ToCut = "This"
-                    
-
-                    outputDisplay.Clear();
-                    outputDisplay.Append(ToCut);
-
                     wordOnDeck.Clear();
                     inputDisplay.Clear();
                     inputConvert.Clear();
 
-                    lblWordOnDeck.Text = outputDisplay.ToString();
+                    lblWordOnDeck.Text = "";
                 }
                 else
-                {
-                    outputDisplay.Clear();
-                    txtOutput.Text = outputDisplay.ToString();
+                {     
+                    string ToCut = outputDisplay.ToString();
+                    if (ToCut.Length > 0)
+                    {
+                        outputDisplay.Clear();
+                        int i = ToCut.LastIndexOf(" ");
+                        outputDisplay.Append(ToCut.Substring(0,i));
+                    }
+
+                   
+                    //txtOutput.Text = outputDisplay.ToString();
                     txtOutputText.Text = outputDisplay.ToString();
                 }
                 
@@ -96,16 +95,21 @@ namespace PaddlePlusPlus
             }
             else if (e.Key == VirtualKey.Right)
             {
+
                 if (letterOnDeck == "")
                 {
-                    outputDisplay.Append(wordOnDeck.ToString() + " ");
+                    if (wordOnDeck.ToString() != "")
+                    {
+                        outputDisplay.Append(" " + wordOnDeck.ToString());
 
-                    txtOutput.Text = outputDisplay.ToString();
-                    txtOutputText.Text = outputDisplay.ToString();
-         
-                    lblWordOnDeck.Text = "";
+                        //txtOutput.Text = outputDisplay.ToString();
+                        txtOutputText.Text = outputDisplay.ToString();
 
-                    wordOnDeck.Clear();
+                        lblWordOnDeck.Text = "";
+
+                        wordOnDeck.Clear();
+                    }
+                    
                 }
                 else
                 {
@@ -141,6 +145,7 @@ namespace PaddlePlusPlus
                     lblWordOnDeck.Text = wordOnDeck.ToString() + letterOnDeck;
 
                     notPressedZ = false;
+
                     DahSoundManager.stopPlaying();
                     DitSoundManager.play550Hzshort();
                 }
@@ -227,6 +232,16 @@ namespace PaddlePlusPlus
         private void CallAPI(string text)
         {
             showMorseCode(text);
+        }
+
+        private void txtOutputText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtOutput.Text = txtOutputText.Text;
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            CallAPI(txtOutputText.Text);
         }
     }
 }

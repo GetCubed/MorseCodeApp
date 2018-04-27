@@ -12,8 +12,8 @@ namespace PaddlePlusPlus.Utilities
     {
         public static void write(string text)
         {
-            string path = @"D:\MorseCode.txt";
-            File.Create(path);
+            //string path = @"D:\MorseCode.txt";
+            //File.Create(path);
 
 
             //MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(path));
