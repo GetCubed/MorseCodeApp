@@ -23,20 +23,12 @@
         <TextBox x:Name="txtAPITextTest" HorizontalAlignment="Left" Margin="635,568,0,0" Text="" VerticalAlignment="Top" Height="129" Width="606"/>
         <Button x:Name="btnSave" Content="Save Audio File" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" Width="531" Height="46" Click="btnSave_Click"/>
 
-
-        
-
-
-
         <TextBlock x:Name="txtTitle" HorizontalAlignment="Left" Margin="29,27,0,0" Text="Paddle++ Bringing Morse Code to 2018" TextWrapping="Wrap" VerticalAlignment="Top" Width="531" Height="31" FontSize="18" FontWeight="Bold"/>
         <Image x:Name="imgMorseChart" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="606" Margin="635,66,0,0" Source="Assets/morsechart.jpg" Stretch="Uniform"/>
         <TextBlock x:Name="txtDit" HorizontalAlignment="Left" Margin="29,681,0,-9" Text="Z - Dit" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="36" FontWeight="Bold" TextAlignment="Center" FontFamily="Segoe UI"/>
         <TextBlock x:Name="txtDah" HorizontalAlignment="Left" Margin="303,681,0,-9" Text="X - Dah" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
-
-
-
-
-
+        
+        <TextBlock x:Name="txtAPIConfirmation" HorizontalAlignment="Left" Margin="635,552,0,0" Text="API Response Confirmation" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
 
     </Grid>
 </Page>

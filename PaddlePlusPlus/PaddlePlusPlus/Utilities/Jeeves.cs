@@ -9,9 +9,14 @@ namespace PaddlePlusPlus.Utilities
 {
     class Jeeves
     {
+        //-------------------LOCAL API-------------------
         //public static Uri DBUri = new Uri("http://localhost:61816//");
-        //public static Uri DBUri = new Uri("http://progwebapi.azurewebsites.net//");
-        public static Uri DBUri = new Uri("http://www.morsecode-api.de//");
+
+        //-------------------PAID API FOR MORSE SOUND CONVERSION-------------------
+        //public static Uri DBUri = new Uri("http://api.funtranslations.com/translate//"); 
+
+        //-------------------FREE API FOR APP TESTING-------------------
+        public static Uri DBUri = new Uri("http://www.morsecode-api.de//"); 
 
 
         internal async static void ShowMessage(string strTitle, string Msg)
