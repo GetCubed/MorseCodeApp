@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Navigation;
 using Windows.Media.Playback;
 using Windows.Media.Core;
 using PaddlePlusPlus.Utilities;
+using PaddlePlusPlus.DAL;
+using PaddlePlusPlus.Models;
 
 
 
@@ -38,6 +40,8 @@ namespace PaddlePlusPlus
             this.InitializeComponent();
             DitSoundManager.setSource();
             DahSoundManager.setSource();
+            //MorseWriter.write("WORKS");
+
         }
         
         bool notPressedX = true;
@@ -53,7 +57,7 @@ namespace PaddlePlusPlus
         StringBuilder wordOnDeckPrime = new StringBuilder("");
 
         string letterOnDeck;
-       
+
         Ch enumOnDeck;
 
         private void txtInput_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
@@ -61,19 +65,28 @@ namespace PaddlePlusPlus
 
             if (e.Key == VirtualKey.Left)
             {
+
+
                 if (lblWordOnDeck.Text != "")
                 {
                     wordOnDeck.Clear();
-
                     inputDisplay.Clear();
                     inputConvert.Clear();
 
                     lblWordOnDeck.Text = "";
                 }
                 else
-                {
-                    outputDisplay.Clear();
-                    txtOutput.Text = outputDisplay.ToString();
+                {     
+                    string ToCut = outputDisplay.ToString();
+                    if (ToCut.Length > 0)
+                    {
+                        outputDisplay.Clear();
+                        int i = ToCut.LastIndexOf(" ");
+                        outputDisplay.Append(ToCut.Substring(0,i));
+                    }
+
+                   
+                    //txtOutput.Text = outputDisplay.ToString();
                     txtOutputText.Text = outputDisplay.ToString();
                 }
                 
@@ -82,16 +95,21 @@ namespace PaddlePlusPlus
             }
             else if (e.Key == VirtualKey.Right)
             {
+
                 if (letterOnDeck == "")
                 {
-                    outputDisplay.Append(wordOnDeck.ToString() + " ");
+                    if (wordOnDeck.ToString() != "")
+                    {
+                        outputDisplay.Append(" " + wordOnDeck.ToString());
 
-                    txtOutput.Text = outputDisplay.ToString();
-                    txtOutputText.Text = outputDisplay.ToString();
-         
-                    lblWordOnDeck.Text = "";
+                        //txtOutput.Text = outputDisplay.ToString();
+                        txtOutputText.Text = outputDisplay.ToString();
 
-                    wordOnDeck.Clear();
+                        lblWordOnDeck.Text = "";
+
+                        wordOnDeck.Clear();
+                    }
+                    
                 }
                 else
                 {
@@ -127,6 +145,7 @@ namespace PaddlePlusPlus
                     lblWordOnDeck.Text = wordOnDeck.ToString() + letterOnDeck;
 
                     notPressedZ = false;
+
                     DahSoundManager.stopPlaying();
                     DitSoundManager.play550Hzshort();
                 }
@@ -159,7 +178,6 @@ namespace PaddlePlusPlus
             txtInput.Text = inputDisplay.ToString();
         }
 
-        
         private void txtInput_PreviewKeyUp(object sender, KeyRoutedEventArgs e)
         {
             
@@ -179,7 +197,51 @@ namespace PaddlePlusPlus
             }
         }
 
-    
 
+        private async void showMorseCode(string text)
+        {
+
+            MorseCodeRespository r = new MorseCodeRespository();
+            try
+            {
+                MorseCode morseCode = new MorseCode();
+                morseCode.morsecode = "";
+                morseCode.plaintext = "";
+                if (text != "")
+                {
+                    morseCode = await r.EncodeByStringAsync(text);
+                }
+
+                txtAPITextTest.Text = morseCode.morsecode;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException.Message.Contains("server"))
+                {
+                    Jeeves.ShowMessage("Error", "No connection with the server.");
+                }
+                else
+                {
+                    Jeeves.ShowMessage("Error", "Could not complete operation.");
+                }
+            }
+
+        }
+ 
+        private void CallAPI(string text)
+        {
+            showMorseCode(text);
+        }
+
+        private void txtOutputText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtOutput.Text = txtOutputText.Text;
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            CallAPI(txtOutputText.Text);
+        }
     }
 }
